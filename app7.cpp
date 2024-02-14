@@ -1,7 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <list>
-#include <deque>
 
 using namespace std;
 
@@ -26,13 +24,85 @@ int incrementByKMulM(int a) {
 }
 
 // "decltype" is used to determine the type of an expression at compile time.
+/*
 void transform(vector<int>& v, OneInter funcptr) {
     auto sz = v.size();
     for(decltype(sz) i = 0; i < sz; i++)
         v[i] = funcptr(v[i]);
 }
+ */
+
+/*
+template<typename Container, typename Func>
+void transform(Container& v, Func funcptr) {
+    for(auto iter = v.begin(); iter != v.end; iter++) {
+        auto& item = *iter;
+        item = funcptr(item);
+    }
+}
+*/
+
+template<typename Container, typename Object>
+void transform(Container& v, const Object& obj) {
+    for (auto& item : v) {
+        /*
+        for(auto iter = v.begin(); iter != v.end(); iter++) {
+            auto& item = *iter;
+            item = obj.run(item);
+        }
+         */
+        item = obj(item);
+    }
+}
+
+/*
+template<typename Container, typename Func>
+void transform(Container& v, Func funcptr, int k) {
+    for(auto iter = v.begin(); iter != v.end(); iter++) {
+        auto &item = *iter;
+        item = funcptr(item, k);
+    }
+};
+*/
+
+template<typename Container>
+void print(const Container& v) {
+    for(auto iter = v.begin(); iter != v.end(); iter++) {
+        const auto& item = *iter;
+        cout << item << ' ';
+    }
+    cout << endl;
+}
 
 int main(int argc, char* argv[]) {
+    auto v = vector<int>();
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(3);
+    v.push_back(10);
+    v.push_back(20);
+    print(v);
+
+    incrementByKMulM_K = 10;
+    incrementByKMulM_M = 2;
+    transform(v, &incrementByKMulM);
+    print(v);
+
+    struct IncrementByKMulM {
+        int K;
+        int M;
+
+        IncrementByKMulM(int K, int M) : K(K), M(M) { }
+
+        inline int operator() (int a) const {
+            return (a + K) * M;
+        }
+    };
+
+    auto obj = IncrementByKMulM(5, 100);
+
+    transform(v, [K=5, M=100](int a) { return (a+K) * M; });
+    print(v);
 
     return 0;
 }
