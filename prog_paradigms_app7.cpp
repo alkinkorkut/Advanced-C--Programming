@@ -1,3 +1,17 @@
+// introducing std::vector<T>
+// "transform/map" algorithm with function pointers
+
+// encapsulating functions:
+//   functions themselves (with func pointers),
+//   function objects
+//   lambda functions
+
+// iterators and range-for-loop
+
+// unified/universal construction:
+//   stricter construction with {} instead of (),
+//   initializer_list support for ctors
+
 #include <iostream>
 #include <vector>
 

@@ -1,3 +1,18 @@
+// overview of encapsulating functions (OOP):
+//   functions themselves (with func pointers)
+//   function objects (overloading the function call operator  "operator()"
+//   lambda functions
+
+// GENERATORS (Coroutines): for functional programming
+// mutable lambdas: fibonacci generator
+
+// generic programming:
+//   transform algorithm (map in other languages)
+//     inline version with side-effects vs pure version
+//   accumulate algorithm (reducer in other languages)
+//   filter algorithm
+//   count_if algorithm
+
 #include <iostream>
 #include <vector> // an array dynamically allocated contiguously in heap memory
 #include <list> // this is a linked-list implementation

@@ -1,3 +1,23 @@
+// C has malloc and free for dynamic memory handling.
+// C++ has new/delete.
+// Vector object with dynamic dimensions
+// static variables, static member variables
+// Generic Programming = Templates in C++
+
+// const keyword
+
+// OOP:
+// ctor/dtor
+// copy-ctor, copy-assignment
+// move-ctor, move-assignment (in CS409/509 Adv. C++ Course)
+// inheritance (later)
+
+// function overloading
+// operators and operator overloading
+// function parameters: pass by value, pass by reference
+
+// auto, AAA rule (almost always auto)
+
 #include <iostream>
 #include "Vector.h"
 
