@@ -1,29 +1,4 @@
-// stack memory vs heap memory
-// value semantics vs reference semantics
-
-// global scope, local scope
-// free-functions
-
-// class/struct? object? ------> type? instance?
-// typedef (C)
-
-// c-tor of a primitive type
-// c-tor of a complex type (struct)
-
-// write a c-tor of a struct instance as a free function (imperative programming paradigm)
-// write a c-tor of a struct instance as a member function (OOP paradigm)
-
-// allocate memory at run-time (dynamic memory allocation)
-// free memory at run-time
-
-// write a dtor as a free function (imperative programming paradigm)
-// write a dtor as a member function (OOP paradigm)
-
-// member variables ~= attributes ~= properties (OOP)
-
 #include <iostream>
-
-int i = 10;
 
 struct Vector2d {
     int a;
@@ -55,16 +30,11 @@ struct Vector2d {
 //    return result;
 //}
 
-void func() {
-    int i = 100;
+int main(int argc, char* argv[]) {
     Vector2d A(5,7);
     Vector2d B(-1, 3);
     Vector2d C = A + B;
     std::cout << C.a << std::endl;
     std::cout << C.b << std::endl;
-
-}
-int main(int argc, char* argv[]) {
-    func();
     return 0;
 }

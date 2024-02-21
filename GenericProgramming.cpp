@@ -1,13 +1,5 @@
 #include <iostream>
-#include <vector>
 #include <list>
-
-// generic programming:
-// transform algorithm (map in other languages)
-// inline version with side-effects vs. pure version
-// filter algorithm
-// count_if algorithm
-// accumulate algorithm (reducer in other languages)
 
 using namespace std;
 
