@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.20)
-project(programmingParadigms)
+cmake_minimum_required(VERSION 3.27)
+project(Advanced_CPP)
 
 set(CMAKE_CXX_STANDARD 23)
 
@@ -13,3 +13,5 @@ add_executable(app app.cpp)
 add_executable(fibonacci Fibonacci.cpp)
 add_executable(generic_programming GenericProgramming.cpp)
 add_executable(int_vector_3d IntVector3d.cpp)
+add_executable(left_and_right_values Left_and_right_values.cpp)
+add_executable(pointers_and_constness Pointers_and_constness.cpp)
