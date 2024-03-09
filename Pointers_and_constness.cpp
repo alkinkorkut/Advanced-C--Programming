@@ -30,11 +30,20 @@ int main(int argc, char* argv[]) {
     cout << "------" << endl;
 
     auto a_value = 10.0;
+    auto b_value = 12.0;
 
-    using double_pointer = double*;
-    double_pointer double_ptr = &a_value;
+    double * const double_ptr = &a_value;
+    cout << "The address of a_value: " << double_ptr << endl;
+    //double_ptr = &b_value; // this gives compiler error here
+    cout << "The value in the address of a_value: " << *double_ptr << endl;
+    cout << "------" << endl;
 
+    double const * double_ptr2 = &b_value; // const double * double_ptr2 = &b_value;
+    //*double_ptr2 = 125.0; // this gives compiler error here
 
+    cout << sizeof(double) << " Bytes" << endl;
+    cout << sizeof(double_ptr) << " Bytes" << endl;
+    cout << "------" << endl;
 
     return 0;
 }
