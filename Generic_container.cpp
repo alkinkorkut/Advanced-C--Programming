@@ -1,6 +1,5 @@
-// Write a Value<T> class that uses heap memory for storage! with all ctors and dtors
+// Target: Write a HeapValue<T> class that uses heap memory for storage! with all constructors and destructors
 #include <iostream>
-
 using namespace std;
 
 template <typename T> // assuming T does not have any modifiers (no ref, no refref)
@@ -8,27 +7,30 @@ struct HeapValue {
     T* ptr = nullptr;
 
     // new style c-tor accessible by curly brackets
-    HeapValue(std::initializer_list<T>content) {
-        cout << "new constructor is called with a size of " << content.size() << endl;
+    HeapValue(std::initializer_list<int> content) {
+        cout << "new ctor is called with a size of " << content.size() << endl;
     }
 
-    // old style c-tor
-    HeapValue(int) {
-        cout << "old constructor is called" << endl;
+    HeapValue(int) { // old style c-tor
+        cout << "old ctor is called" << endl;
     }
 
-    // default constructor: delegate construction to type T's default constructor: T{}
+    // default ctor: delegate construction to type T's default ctor: T{}
     HeapValue() : ptr(new T{}) { }
 
     // constructing HeapValue<T> from T types
-    HeapValue(const T& t) : ptr(new T{t}) { }
+    HeapValue(const T& t) : ptr(new T{t})  { }
 
-    // copy constructor of HeapValue<T>: clone the right hand side value by delegating to its own copy constructor
+    // copy c-tor of HeapValue<T>: clone the right hand side value by delegating to its own copy ctor
     HeapValue(const HeapValue<T>& other) : ptr(new T{*other.ptr}) { }
 
     // r-value ref binding to HeapValue<T>:
     // we use this kind of binding for signalling us that right side is a temporary value
-    // will be implemented later on
+    HeapValue(HeapValue<T>&& other)
+            : ptr(other.ptr) // move the treasure of right side to yourself
+    {
+        other.ptr = nullptr; // then mark the right side's treasure pointer as null so that only owner is you
+    }
 
     ~HeapValue() {
         delete ptr;
