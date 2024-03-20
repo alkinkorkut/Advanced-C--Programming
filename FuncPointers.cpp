@@ -97,8 +97,9 @@ int main(int argc, char* argv[]) {
 
 //    cout << retval << endl;
 
-
-
+    auto v_1 = vector<int>{1, 2, 3, 4, 5};
+    for_each(v_1, &dosmt2);
+    print(v_1);
 
     return 0;
 }
