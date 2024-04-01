@@ -19,3 +19,4 @@ add_executable(inheritance_and_dynamic_polymorphism Inheritance_and_dynamic_poly
 add_executable(operator_overloading Operator_overloading.cpp)
 add_executable(reference_collapsing Reference_collapsing.cpp)
 add_executable(generic_container Generic_container.cpp)
+add_executable(template_parameter_types Template_parameter_types.cpp)
